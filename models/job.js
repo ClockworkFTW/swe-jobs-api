@@ -4,6 +4,24 @@ const getJobModel = (sequelize, { DataTypes }) => {
       type: DataTypes.STRING,
       primaryKey: true,
     },
+    title: {
+      type: DataTypes.TEXT,
+    },
+    company: {
+      type: DataTypes.TEXT,
+    },
+    location: {
+      type: DataTypes.TEXT,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    link: {
+      type: DataTypes.TEXT,
+    },
+    date: {
+      type: DataTypes.DATE,
+    },
   });
 
   //   Job.associate = (models) => {

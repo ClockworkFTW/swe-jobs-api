@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 
 app.use("/job", routes.job);
 
-const eraseDatabaseOnSync = true;
+const eraseDatabaseOnSync = false;
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
   app.listen(process.env.PORT, () =>

@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 
-import getUserModel from "./user";
-import getJobModel from "./job";
+import getUserModel from "./user.js";
+import getJobModel from "./job.js";
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -9,6 +9,7 @@ const sequelize = new Sequelize(
   process.env.DATABASE_PASSWORD,
   {
     dialect: "postgres",
+    logging: false
   }
 );
 
