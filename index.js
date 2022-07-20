@@ -6,6 +6,8 @@ import models, { sequelize } from "./models/index.js";
 
 const app = express();
 
+// Middleware
+app.use(express.json());
 app.use(cors());
 
 app.use((req, res, next) => {
@@ -13,6 +15,8 @@ app.use((req, res, next) => {
   next();
 });
 
+// Routes
+app.use("/auth", routes.auth);
 app.use("/job", routes.job);
 
 const eraseDatabaseOnSync = false;
