@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 // Routes
 app.use("/auth", routes.auth);
 app.use("/job", routes.job);
+app.use("/resume", routes.resume);
 
 const eraseDatabaseOnSync = false;
 

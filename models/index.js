@@ -2,6 +2,7 @@ import Sequelize from "sequelize";
 
 import getUserModel from "./user.js";
 import getJobModel from "./job.js";
+import getResumeModel from "./resume.js";
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -9,13 +10,14 @@ const sequelize = new Sequelize(
   process.env.DATABASE_PASSWORD,
   {
     dialect: "postgres",
-    logging: false
+    logging: false,
   }
 );
 
 const models = {
   User: getUserModel(sequelize, Sequelize),
   Job: getJobModel(sequelize, Sequelize),
+  Resume: getResumeModel(sequelize, Sequelize),
 };
 
 Object.keys(models).forEach((key) => {
