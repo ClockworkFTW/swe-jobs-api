@@ -9,7 +9,16 @@ const sequelize = new Sequelize(
   process.env.DATABASE_USER,
   process.env.DATABASE_PASSWORD,
   {
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
     dialect: "postgres",
+    dialectOptions: process.env.NODE_ENV === "production" && {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+        ca: process.env.DATABASE_CA_CERT,
+      },
+    },
     logging: false,
   }
 );

@@ -7,10 +7,17 @@ import models, { sequelize } from "./models/index.js";
 
 const app = express();
 
+const PORT = process.env.PORT;
+const ENV = process.env.NODE_ENV;
+
+// Logging
+if (ENV === "developement") {
+  app.use(morgan("dev"));
+}
+
 // Middleware
 app.use(express.json());
 app.use(cors());
-app.use(morgan("tiny"));
 
 // Add database models to request
 app.use((req, res, next) => {
@@ -26,7 +33,7 @@ app.use("/resume", routes.resume);
 const eraseDatabaseOnSync = false;
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
-  app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}!`)
+  app.listen(PORT, () =>
+    console.log(`Server running in ${ENV} mode on port ${PORT}`)
   );
 });
