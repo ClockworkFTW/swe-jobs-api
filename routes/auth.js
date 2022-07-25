@@ -20,7 +20,7 @@ router.post("/sign-in", async (req, res) => {
     process.env.JWT_SECRET
   );
 
-  return res.status(200).json({ token });
+  res.status(200).json({ token });
 });
 
 router.post("/sign-up", async (req, res) => {
@@ -39,7 +39,7 @@ router.post("/sign-up", async (req, res) => {
     process.env.JWT_SECRET
   );
 
-  return res.status(200).json({ token });
+  res.status(200).json({ token });
 });
 
 export default router;

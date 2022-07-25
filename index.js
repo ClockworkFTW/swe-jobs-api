@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
 import "dotenv/config";
 import routes from "./routes/index.js";
 import models, { sequelize } from "./models/index.js";
@@ -9,7 +10,9 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(morgan("tiny"));
 
+// Add database models to request
 app.use((req, res, next) => {
   req.models = models;
   next();
