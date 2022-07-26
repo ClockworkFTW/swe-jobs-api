@@ -5,11 +5,11 @@ The following endpoints have been made available for public use:
 ## Data Request
 ###### Get All Jobs
 ```
-https://swe-jobs.com/api/jobs
+https://swe-jobs.com/api/job
 ```
 ###### Search Jobs
 ```
-https://swe-jobs.com/api/jobs/search?title={title}&company={company}&location={location}
+https://swe-jobs.com/api/job/search?title={title}&company={company}&location={location}
 ```
 | Parameters | Description | Example |
 | --- | --- | --- |
